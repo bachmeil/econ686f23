@@ -1,0 +1,63 @@
+---
+title: "Using R Markdown"
+output:
+  html_document: default
+  pdf_document: default
+date: "2023-09-14"
+---
+
+# Why?
+
+- R markdown is a format
+- Many formats for output
+- Analysis -> document
+- Computer code
+- Graphs
+- Tables of results
+- Mixing text and analysis
+- Changes in analysis
+- Multiple output formats
+
+Markdown: Pandoc
+
+Literate programming: Add code to your document
+
+# Relationship between rainfall and harvest
+
+I want to predict the harvest based on the
+most recent rainfall data prior to the
+harvest.
+
+This is a new line.
+
+```
+harvest <- c(150,145,55,70,180,150)
+rain <- c(30,32,18,24,38,32)
+lm(harvest ~ rain)
+lm(harvest ~ 1)
+mean(harvest)
+```
+
+Don't want the code?
+
+Add `echo=FALSE`.
+
+Don't want to run the code? `eval=FALSE`
+
+- Italics `*asterisk*` *asterisk*
+- Bold `**bold**`
+- Lists
+  - Subitem
+
+2\. List
+4\. Items
+
+Equations: $y_{t} = x_{t}$
+
+$$y_{t} = x_{t}$$
+
+Line  
+break
+
+Inline code: `print("hello")` this in the line
+
