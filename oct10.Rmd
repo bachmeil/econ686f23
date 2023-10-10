@@ -1,0 +1,52 @@
+---
+title: "Reading the domestic auto data"
+output:
+  html_document: default
+  pdf_document: default
+date: "2023-10-10"
+---
+
+# Author
+
+Lance Bachmeier created this on
+Oct 10 2023.
+
+# Data Source
+
+The data was downloaded from FRED on
+August 21, 2023. It was the monthly
+seasonally unadjusted data on domestic car sales DAUTOSAAR.
+
+# Loading
+
+The raw data file was domestic.csv. There were no transformations relative
+to what was posted on FRED.
+
+```{r}
+autos.raw <- read.csv("domestic.csv", header=TRUE)
+autos <- ts(autos.raw[,2],
+            start=c(1967,1),
+            frequency=12)
+```
+
+# Attributes
+
+```{r}
+attr(autos, "source") <-
+  "FRED series DAUTOSAAR"
+attr(autos, "downloaded by") <- 
+  "Lance Bachmeier"
+attr(autos, "download date") <-
+  "2023-08-21"
+```
+
+
+```{r}
+attr(autos, "downloaded by")
+attributes(autos)
+```
+
+```{r}
+saveRDS(autos, "autos.RDS")
+autos <- readRDS("autos.RDS")
+```
